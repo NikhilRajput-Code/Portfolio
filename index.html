@@ -1,21 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Rajput - Data Analyst Portfolio</title>
+    <title>Nikhil Rajput - DevOps Engineer & Software Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/888/888879.png">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #f8f9fa;
-            --dark-color: #333;
-            --text-color: #555;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --devops-blue: #2563eb;
+            --software-green: #059669;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --text-color: #475569;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
         }
         
         * {
@@ -30,8 +34,8 @@
         
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
+            line-height: 1.7;
+            color: var(--text-color);
             background-color: var(--light-color);
             overflow-x: hidden;
         }
@@ -50,12 +54,12 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         /* Header & Navigation */
         header {
-            background-color: var(--primary-color);
+            background-color: rgba(15, 23, 42, 0.95);
             color: white;
             padding: 20px 0;
             position: fixed;
@@ -64,11 +68,11 @@
             z-index: 1000;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
         
         header.scrolled {
             padding: 15px 0;
-            background-color: rgba(44, 62, 80, 0.95);
         }
         
         .header-container {
@@ -80,12 +84,24 @@
         .logo {
             font-size: 26px;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: white;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .logo span {
-            color: var(--accent-color);
+            color: var(--secondary-color);
+        }
+        
+        .logo-badge {
+            background: var(--devops-blue);
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
         }
         
         nav ul {
@@ -94,16 +110,17 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 35px;
         }
         
         nav ul li a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
             font-weight: 500;
             font-size: 16px;
-            transition: color 0.3s;
+            transition: all 0.3s;
             position: relative;
+            padding: 5px 0;
         }
         
         nav ul li a:after {
@@ -113,7 +130,7 @@
             height: 2px;
             background-color: var(--secondary-color);
             left: 0;
-            bottom: -5px;
+            bottom: 0;
             transition: width 0.3s;
         }
         
@@ -123,7 +140,7 @@
         }
         
         nav ul li a:hover {
-            color: var(--secondary-color);
+            color: white;
         }
         
         .mobile-menu-btn {
@@ -138,17 +155,26 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: var(--gradient-primary);
             color: white;
-            padding: 150px 0 100px;
+            padding: 160px 0 120px;
             text-align: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 20px;
             color: white;
             animation: fadeInDown 1s ease;
@@ -158,29 +184,45 @@
             font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 25px;
-            color: #ecf0f1;
+            color: #cbd5e1;
             animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tag.devops {
+            background: rgba(37, 99, 235, 0.2);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        .tag.software {
+            background: rgba(5, 150, 105, 0.2);
+            border-color: rgba(5, 150, 105, 0.3);
         }
         
         .hero-content p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: #bdc3c7;
-            animation: fadeInUp 1s ease 0.5s both;
-        }
-        
-        .location {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 30px;
-            color: #bdc3c7;
+            color: #94a3b8;
             animation: fadeInUp 1s ease 0.7s both;
-        }
-        
-        .location i {
-            margin-right: 8px;
-            color: var(--accent-color);
         }
         
         .contact-buttons {
@@ -194,32 +236,35 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 14px 28px;
-            background-color: var(--accent-color);
+            padding: 15px 32px;
+            background-color: var(--secondary-color);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
+            border-radius: 8px;
+            font-weight: 600;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         
         .btn:hover {
-            background-color: #c0392b;
+            background-color: #2563eb;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: none;
         }
         
         .btn-outline:hover {
             background-color: white;
             color: var(--primary-color);
+            border-color: white;
         }
         
         .btn i {
@@ -233,173 +278,356 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             display: inline-block;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
         
         .section-title h2:after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--devops-blue), var(--software-green));
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
+            border-radius: 5px;
         }
         
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-card {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 40px 30px;
+        .section-subtitle {
             text-align: center;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .skill-category {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--devops-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category.software {
+            border-top-color: var(--software-green);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-header i {
+            font-size: 32px;
+            color: var(--devops-blue);
+            background: rgba(37, 99, 235, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+        
+        .skill-category.software .category-header i {
+            color: var(--software-green);
+            background: rgba(5, 150, 105, 0.1);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .skill-tag.highlight {
+            background: var(--devops-blue);
+            color: white;
+        }
+        
+        .software .skill-tag.highlight {
+            background: var(--software-green);
+        }
+        
+        /* Projects Section */
+        .projects {
+            background-color: #f8fafc;
+        }
+        
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--devops-blue);
+            color: white;
+            border-color: var(--devops-blue);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--secondary-color);
         }
         
-        .skill-card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
         
-        .skill-card i {
-            font-size: 48px;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
+        .project-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid #f1f5f9;
         }
         
-        .skill-card h3 {
+        .project-type {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--devops-blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
             margin-bottom: 15px;
-            font-size: 1.5rem;
+        }
+        
+        .project-type.software {
+            background: var(--software-green);
+        }
+        
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-card p {
+            color: var(--text-color);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-tech {
+            padding: 20px 30px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .project-tech span {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .project-stats {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--devops-blue);
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-color);
+            margin-top: 5px;
         }
         
         /* Experience & Education */
         .experience-education {
-            background-color: #f8f9fa;
+            background-color: white;
         }
         
-        .timeline {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+        .timeline-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
         
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background-color: var(--secondary-color);
-            transform: translateX(-50%);
+        .timeline-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f1f5f9;
         }
         
         .timeline-item {
-            width: 50%;
-            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
             position: relative;
-            margin-bottom: 50px;
+            border-left: 4px solid var(--devops-blue);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 70px;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 70px;
-        }
-        
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background-color: white;
-            border: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            top: 40px;
-        }
-        
-        .timeline-item:nth-child(odd):before {
-            right: -12px;
-        }
-        
-        .timeline-item:nth-child(even):before {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            height: 100%;
+        .timeline-item.education {
+            border-left-color: var(--software-green);
         }
         
         .timeline-date {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background: var(--devops-blue);
             color: white;
-            padding: 8px 20px;
+            padding: 6px 15px;
             border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .timeline-content h4 {
-            color: #7f8c8d;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             margin-bottom: 15px;
-            font-size: 1.1rem;
         }
         
-        /* Summary Section */
-        .summary {
-            background-color: white;
+        .timeline-item.education .timeline-date {
+            background: var(--software-green);
         }
         
-        .summary-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .timeline-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-item h5 {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .grade-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Certifications */
+        .certifications {
+            background-color: #f8fafc;
+        }
+        
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cert-icon {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--devops-blue);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 24px;
+        }
+        
+        .cert-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .cert-content p {
             color: var(--text-color);
-        }
-        
-        .summary-content p {
-            margin-bottom: 25px;
+            font-size: 14px;
         }
         
         /* Footer */
         footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
         }
         
         .footer-content {
@@ -410,31 +638,36 @@
         
         .footer-content h2 {
             color: white;
-            margin-bottom: 30px;
-            font-size: 2rem;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
         }
         
         .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 50px;
         }
         
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-align: center;
         }
         
         .contact-item i {
+            font-size: 28px;
             color: var(--secondary-color);
-            font-size: 20px;
+            margin-bottom: 20px;
         }
         
-        .contact-item a {
-            color: #bdc3c7;
+        .contact-item h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item a, .contact-item p {
+            color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -446,16 +679,16 @@
         .social-links {
             display: flex;
             gap: 25px;
-            margin: 30px 0 40px;
+            margin: 30px 0 50px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.1);
+            width: 55px;
+            height: 55px;
+            background-color: rgba(255, 255, 255, 0.08);
             color: white;
             font-size: 22px;
             border-radius: 50%;
@@ -468,12 +701,12 @@
         }
         
         .copyright {
-            color: #95a5a6;
+            color: #64748b;
             font-size: 15px;
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
+            padding-top: 40px;
             width: 100%;
         }
         
@@ -501,6 +734,13 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 1100px) {
+            .timeline-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+        
         @media (max-width: 992px) {
             .hero-content h1 {
                 font-size: 2.8rem;
@@ -510,20 +750,8 @@
                 font-size: 1.5rem;
             }
             
-            .timeline:before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-right: 30px !important;
-                padding-left: 80px !important;
-            }
-            
-            .timeline-item:before {
-                left: 18px !important;
-                right: auto !important;
+            .skills-categories, .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -534,7 +762,6 @@
             
             .header-container {
                 flex-direction: row;
-                align-items: center;
             }
             
             nav {
@@ -567,16 +794,11 @@
             }
             
             .hero {
-                padding: 120px 0 80px;
-                min-height: auto;
+                padding: 140px 0 80px;
             }
             
             .hero-content h1 {
                 font-size: 2.2rem;
-            }
-            
-            .hero-content h2 {
-                font-size: 1.3rem;
             }
             
             .contact-buttons {
@@ -593,6 +815,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 480px) {
@@ -600,15 +826,16 @@
                 font-size: 1.8rem;
             }
             
-            .hero-content p {
-                font-size: 1rem;
+            .hero-tags {
+                gap: 10px;
             }
             
-            .skill-card {
-                padding: 30px 20px;
+            .tag {
+                padding: 6px 14px;
+                font-size: 12px;
             }
             
-            .timeline-content {
+            .project-card, .skill-category {
                 padding: 25px 20px;
             }
         }
@@ -618,7 +845,11 @@
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container header-container">
-            <a href="#home" class="logo">Nikhil<span>Rajput</span></a>
+            <a href="#home" class="logo">
+                <i class="fas fa-code"></i>
+                Nikhil<span>Rajput</span>
+                <span class="logo-badge">DevOps</span>
+            </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -626,9 +857,9 @@
                 <ul>
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#summary" class="nav-link">Summary</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -637,17 +868,24 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-bg"></div>
         <div class="container hero-content">
             <h1>Nikhil Rajput</h1>
-            <h2>Data Analyst with expertise in Data Analytics and Python</h2>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Uttar Pradesh, India</span>
+            <h2>DevOps Engineer & Software Developer</h2>
+            
+            <div class="hero-tags">
+                <span class="tag devops">Containerization</span>
+                <span class="tag software">Full-Stack Development</span>
+                <span class="tag devops">Cloud Infrastructure</span>
+                <span class="tag software">Python Development</span>
+                <span class="tag devops">CI/CD Automation</span>
             </div>
-            <p>MCA student at Harcourt Butler Technical University specializing in computer and information sciences, with hands-on experience in data analysis and Python programming through internships.</p>
+            
+            <p>Specializing in building scalable applications and automating infrastructure with Docker, Terraform, AWS, and Python. Passionate about DevOps practices and software engineering principles.</p>
+            
             <div class="contact-buttons">
-                <a href="mailto:nikhilrajput7017@gmail.com" class="btn">
-                    <i class="fas fa-envelope"></i> Email Me
+                <a href="#contact" class="btn">
+                    <i class="fas fa-paper-plane"></i> Contact Me
                 </a>
                 <a href="https://www.linkedin.com/in/nikhil-rajput-b8951924a" target="_blank" class="btn btn-outline">
                     <i class="fab fa-linkedin"></i> LinkedIn
@@ -663,125 +901,281 @@
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-title">
-                <h2>Top Skills</h2>
+                <h2>Technical Expertise</h2>
+                <p class="section-subtitle">Combining DevOps practices with software engineering for scalable solutions</p>
             </div>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Data Analysis</h3>
-                    <p>Extracting meaningful insights from complex datasets to support data-driven decision making and solve business problems effectively.</p>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <div>
+                            <h3>DevOps & Cloud</h3>
+                            <p>Infrastructure as Code, Automation, Deployment</p>
+                        </div>
+                    </div>
+                    <p>Experienced in building and maintaining cloud infrastructure with a focus on automation, scalability, and reliability.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Docker</span>
+                        <span class="skill-tag highlight">Terraform</span>
+                        <span class="skill-tag">AWS EC2</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">CI/CD Concepts</span>
+                        <span class="skill-tag">Bash Scripting</span>
+                        <span class="skill-tag">Infrastructure as Code</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python Programming</h3>
-                    <p>Proficient in Python for data analysis, automation, and building data-driven applications. Trained through Internshala Trainings.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Data Analytics</h3>
-                    <p>Transforming raw data into actionable insights using analytical techniques, statistical methods, and data visualization tools.</p>
+                
+                <div class="skill-category software">
+                    <div class="category-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <h3>Software Development</h3>
+                            <p>Full-Stack, Backend, Data Processing</p>
+                        </div>
+                    </div>
+                    <p>Building robust applications with clean architecture, efficient algorithms, and scalable design patterns.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">OOP & Data Structures</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects Portfolio</h2>
+                <p class="section-subtitle">Real-world applications combining DevOps and software development</p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="devops">DevOps</button>
+                <button class="filter-btn" data-filter="software">Software Dev</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- DevOps Project 1 -->
+                <div class="project-card" data-category="devops">
+                    <div class="project-header">
+                        <span class="project-type">DevOps</span>
+                        <h3>Containerized Application Deployment</h3>
+                        <p>Dockerized Flask web application with optimized container images for consistent deployment across environments.</p>
+                    </div>
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>Linux</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-value">35%</div>
+                            <div class="stat-label">Reduced Startup Time</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Env Consistency</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps Project 2 -->
+                <div class="project-card" data-category="devops">
+                    <div class="project-header">
+                        <span class="project-type">DevOps</span>
+                        <h3>AWS Infrastructure with Terraform</h3>
+                        <p>Automated cloud infrastructure provisioning on AWS EC2 using Terraform for Infrastructure as Code.</p>
+                    </div>
+                    <div class="project-tech">
+                        <span>Terraform</span>
+                        <span>AWS EC2</span>
+                        <span>Bash</span>
+                        <span>Git</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-value">60%</div>
+                            <div class="stat-label">Setup Time Reduced</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">IaC</div>
+                            <div class="stat-label">Infrastructure as Code</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Software Project 1 -->
+                <div class="project-card" data-category="software">
+                    <div class="project-header">
+                        <span class="project-type software">Software Dev</span>
+                        <h3>Smart Expense Tracker</h3>
+                        <p>Full-stack financial management system with ML-based savings predictions and user authentication.</p>
+                    </div>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>SQLite</span>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-value">30%</div>
+                            <div class="stat-label">Accuracy Improved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">50%</div>
+                            <div class="stat-label">Manual Effort Reduced</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Software Project 2 -->
+                <div class="project-card" data-category="software">
+                    <div class="project-header">
+                        <span class="project-type software">Software Dev</span>
+                        <h3>Family Expense Dashboard</h3>
+                        <p>Real-time expense visualization and financial reporting dashboard with automated analytics.</p>
+                    </div>
+                    <div class="project-tech">
+                        <span>Streamlit</span>
+                        <span>Pandas</span>
+                        <span>Data Visualization</span>
+                        <span>Python</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-value">1000+</div>
+                            <div class="stat-label">Records Analyzed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">Real-time</div>
+                            <div class="stat-label">Visualization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
     <section class="experience-education" id="experience">
         <div class="container">
             <div class="section-title">
-                <h2>Experience</h2>
+                <h2>Experience & Education</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">June 2024 - August 2024 (3 months)</span>
-                        <h3>Main Flow Services and Technologies</h3>
-                        <h4>Data Analyst Intern</h4>
-                        <p>Ghaziabad, Uttar Pradesh, India</p>
-                        <p>Contributed to data analysis projects and applied Python programming to solve technical challenges. Gained hands-on experience in data processing and visualization.</p>
+            
+            <div class="timeline-container">
+                <!-- Experience Column -->
+                <div class="timeline-section">
+                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">June 2024 – August 2024</span>
+                        <h4>Main Flow Services and Technologies</h4>
+                        <h5>Data Analyst Intern</h5>
+                        <p>Developed Python automation scripts improving data processing speed by 25%. Assisted in debugging and software testing improving system reliability.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">March 2024 – April 2024</span>
+                        <h4>Cognifyz Technologies</h4>
+                        <h5>Software Development Intern</h5>
+                        <p>Developed programming solutions using Python and C++. Optimized algorithm performance and execution efficiency.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">March 2024 - April 2024 (2 months)</span>
-                        <h3>Cognifyz Technologies</h3>
-                        <h4>Intern</h4>
-                        <p>Applied Python programming and data analysis skills to real-world projects. Developed technical solutions and contributed to team objectives.</p>
+                
+                <!-- Education Column -->
+                <div class="timeline-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    
+                    <div class="timeline-item education">
+                        <span class="timeline-date">2025 – 2027</span>
+                        <h4>Harcourt Butler Technical University</h4>
+                        <h5>Master of Computer Applications (MCA)</h5>
+                        <p>Specializing in advanced software engineering, cloud computing, and DevOps practices.</p>
+                        <div class="grade-badge">Current CGPA: 9.44</div>
+                    </div>
+                    
+                    <div class="timeline-item education">
+                        <span class="timeline-date">2022 – 2025</span>
+                        <h4>Teerthanker Mahaveer University</h4>
+                        <h5>Bachelor of Computer Applications (BCA)</h5>
+                        <p>Focus on programming fundamentals, database management, and software development.</p>
+                        <div class="grade-badge">CGPA: 9.57</div>
+                    </div>
+                    
+                    <div class="timeline-item education">
+                        <span class="timeline-date">2021 – 2022</span>
+                        <h4>12th Grade (Senior Secondary)</h4>
+                        <h5>Science Stream with Computer Science</h5>
+                        <p>Completed with focus on mathematics, physics, chemistry, and computer science.</p>
+                        <div class="grade-badge">Percentage: 85%</div>
+                    </div>
+                    
+                    <div class="timeline-item education">
+                        <span class="timeline-date">2019 – 2020</span>
+                        <h4>10th Grade (Secondary)</h4>
+                        <h5>General Education</h5>
+                        <p>Completed secondary education with excellent academic performance.</p>
+                        <div class="grade-badge">Percentage: 82%</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="experience-education" id="education">
+    <!-- Certifications -->
+    <section class="certifications" id="education">
         <div class="container">
             <div class="section-title">
-                <h2>Education</h2>
+                <h2>Certifications & Training</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">August 2025 - August 2027</span>
-                        <h3>Harcourt Butler Technical University (HBTU), Kanpur</h3>
-                        <h4>Master of Computer Applications - MCA</h4>
-                        <p>Computer and Information Sciences and Support Services</p>
-                        <p>Currently pursuing MCA with focus on advanced programming, data structures, algorithms, and data analysis techniques.</p>
+            
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h4>Programming with Python</h4>
+                        <p>Internshala Trainings</p>
+                        <p>Comprehensive Python programming course covering data structures, OOP, and application development.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2022 - 2025</span>
-                        <h3>Teerthanker Mahaveer University, Moradabad</h3>
-                        <h4>BCA, Bachelor of Computer Applications</h4>
-                        <p>Completed Bachelor's degree in Computer Applications with focus on programming fundamentals, database management, and software development.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2023</span>
-                        <h3>Internshala Trainings</h3>
-                        <h4>Python Programming Training</h4>
-                        <p>Completed specialized training in Python programming, enhancing technical skills for data analysis and software development.</p>
-                    </div>
-                </div>
-                <!-- Added 10th & 12th Education -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2021 - 2022</span>
-                        <h3>12th Grade (Senior Secondary)</h3>
-                        <h4>Science Stream with Computer Science</h4>
-                        <p>Completed senior secondary education with focus on mathematics, physics, chemistry, and computer science. Developed strong analytical and problem-solving skills.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2019 - 2020</span>
-                        <h3>10th Grade (Secondary)</h3>
-                        <h4>General Education</h4>
-                        <p>Completed secondary education with excellent academic performance. Developed foundational knowledge in mathematics, science, and information technology.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Summary Section -->
-    <section class="summary" id="summary">
-        <div class="container">
-            <div class="section-title">
-                <h2>Professional Summary</h2>
-            </div>
-            <div class="summary-content">
-                <p>As an MCA student at Harcourt Butler Technical University, I specialize in computer and information sciences, with a strong focus on programming and data analysis. My academic foundation includes a Bachelor of Computer Applications from Teerthanker Mahaveer University, complemented by training in Python programming through Internshala Trainings.</p>
                 
-                <p>I gained valuable experience during internships at Main Flow Services and Technologies and Cognifyz Technologies, where I contributed to data analysis and applied Python programming to solve technical challenges. These experiences have equipped me with practical skills in data processing, analysis, and problem-solving in real-world scenarios.</p>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h4>C++ Programming Internship</h4>
+                        <p>Cognifyz Technologies</p>
+                        <p>Hands-on C++ programming with focus on algorithm optimization and software development.</p>
+                    </div>
+                </div>
                 
-                <p>My educational journey began with strong performances in 10th and 12th grades, where I developed analytical thinking and problem-solving abilities. This foundation led me to pursue computer applications, culminating in my current MCA program.</p>
-                
-                <p>I am committed to leveraging my growing expertise in data analytics and programming to develop impactful solutions in the technology space. With a strong foundation in computer applications and hands-on experience in data analysis, I aim to contribute to innovative projects that utilize data-driven approaches to solve complex problems.</p>
-                
-                <p>Based in Uttar Pradesh, India, I am passionate about continuous learning and staying updated with the latest trends in data analytics and technology. I am actively seeking opportunities to apply my skills and contribute to meaningful projects in the field of data analysis.</p>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h4>DevOps Fundamentals</h4>
+                        <p>Self-Trained</p>
+                        <p>Practical experience with Docker, Terraform, AWS, and CI/CD pipeline concepts.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -795,15 +1189,20 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
                         <a href="mailto:nikhilrajput7017@gmail.com">nikhilrajput7017@gmail.com</a>
                     </div>
+                    
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Uttar Pradesh, India</span>
+                        <h4>Location</h4>
+                        <p>Uttar Pradesh, India</p>
                     </div>
+                    
                     <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/NikhilRajput-Code" target="_blank">GitHub Profile</a>
+                        <i class="fas fa-link"></i>
+                        <h4>Profiles</h4>
+                        <p>Available for opportunities</p>
                     </div>
                 </div>
                 
@@ -823,8 +1222,8 @@
                 </div>
                 
                 <p class="copyright">
-                    &copy; 2024 Nikhil Rajput. All rights reserved.<br>
-                    Data Analyst Portfolio | Designed with HTML, CSS & JavaScript
+                    &copy; 2024 Nikhil Rajput. DevOps Engineer & Software Developer.<br>
+                    Portfolio designed with modern web technologies | Open to opportunities
                 </p>
             </div>
         </div>
@@ -878,6 +1277,37 @@
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
                 }
+            });
+        });
+        
+        // Project filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
             });
         });
         
